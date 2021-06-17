@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'Arial Rounded MT';
+  src: local('Arial Rounded MT'),
+       local('Arial Rounded MT Bold'),
+       url('../fonts/Arial_Rounded.ttf')
+}
+
+:root {
+  --cl-primary-200: hsl(207, 56%, 65%);
+  --cl-primary-300: hsl(207, 55%, 50%);
+  --cl-primary-400: hsl(207, 55%, 35%);
+
+  --cl-grey-400: hsl(0, 0%, 29%);
+  
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Arial Rounded MT', 'Arial', sans-serif;
+  font-smooth: always;
+  margin: 0;
+  padding: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cl-primary-300);
+}
+
+h1 {
+  font-size: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+p, figcaption {
+  color: var(--cl-grey-400);
+  font-family: 'Helvetica';
+  font-weight: 300;
+  line-height: 1.3em;
+}
+
+main {
+  padding: 5rem max(2rem, 15vw);
+}
+
+.intro {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  justify-content: center;
+}
+
+.intro div {
+  max-width: 30rem;
+}
+
+.intro img {
+  width: clamp(15rem, 30%, 20rem);
+}
+
+.intro h2,
+.intro p {
+  margin-bottom: 1em;
+}
+.intro h3 {
+  font-family: 'Helvetica', sans-serif;
+  color: var(--cl-grey-400);
+}
+
+.design-challenge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: max(1.5rem, 10vw) 0;
+}
+
+.design-challenge div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.design-challenge h2 {
+  font-size: clamp(2.5rem, 10vw, 3rem);
+  max-width: 20rem;
+}
+
+.design-challenge p {
+  max-width: 40rem;
+}
+
+.design-challenge p:first-of-type {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.flow {
+  --translate: -50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  opacity: 0;
+  width: clamp(15rem, 100%, 30rem);
+}
+
+.flow:nth-of-type(even) {
+  --translate: 50vw;
+  margin-left: auto;
+}
+
+.flow.animate {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.flow h2 {
+  font-size: clamp(2.5rem, 10vw, 3rem);
+  margin: 2rem 0;
+  padding-inline-start: .5em;
+}
+
+.flow div {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+}
+
+.flow img {
+  width: clamp(7.5rem, 50%, 20rem);
+}
+
+.flow p {
+  max-width: 30rem;
+}
+
+footer {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-evenly;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer section {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem 3rem;
+  flex-wrap: wrap;
+  width: clamp(15rem, 50%, 30rem);
+}
+
+footer section > h2 {
+  flex: 0 0 100%;
+}
+
+footer section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+footer a {
+  text-decoration: none;
+  font-family: 'Helvetica', sans-serif;
+  color: inherit;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+figure img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 250ms ease-in-out;
+}
+
+figure img:hover {
+  transform: scale(1.125);
+}
+
+figcaption {
+  margin-top: .5em;
+}
+
+.prapla-logo img {
+  object-fit: contain;
+  border-radius: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(var(--translate));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
